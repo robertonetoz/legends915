@@ -6,7 +6,13 @@
 export const site = {
   name: "Legends Barbershop",
   shortName: "Legends 915",
-  url: "https://legendsbarbershop915.com", // TODO: replace with the final domain
+  // Set NEXT_PUBLIC_SITE_URL once a custom domain is connected; on Vercel the
+  // production URL is picked up automatically.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://legends915-two.vercel.app"),
   description:
     "Fades, designs, beard work and kids' cuts in El Paso and Horizon City, TX. Walk-ins welcome, appointments available.",
   timezone: "America/Denver", // El Paso runs on Mountain Time
